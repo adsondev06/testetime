@@ -35,9 +35,9 @@ document.addEventListener("DOMContentLoaded", function() {
         if (timeLeft === 0) {
             clearInterval(countdownInterval);
             countdownElement.classList.add('red');
-            if (navigator.vibrate) {
+            if ('vibrate' in navigator) {
                 console.log("Vibrando...");
-                navigator.vibrate([1000, 500, 1000]);
+                navigator.vibrate([500, 200, 500]);
             } else {
                 console.log("Vibração não suportada.");
             }

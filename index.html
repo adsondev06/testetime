@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela com Número Aleatório e Relógio</title>
+    <title>Número Aleatório e Contagem Regressiva</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -11,7 +12,8 @@
         <div class="timer">
             <h2>Tempo Restante: <span id="countdown"></span></h2>
         </div>
-        <button id="test-button">Testar Notificação</button>
+        <button id="start-button">Iniciar</button> <!-- Botão para interação do usuário -->
+        <audio id="notification-sound" src="beep.mp3"></audio> <!-- Certifique-se de que este arquivo está no local correto -->
     </div>
     <script src="script.js"></script>
 </body>

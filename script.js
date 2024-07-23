@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Função para gerar um número aleatório entre 1 e 1000
     function generateRandomNumber() {
         return Math.floor(Math.random() * 1000) + 1;
     }
 
+    // Verificar se há um número salvo no localStorage
     let randomNumber = localStorage.getItem('randomNumber');
     if (!randomNumber) {
         randomNumber = generateRandomNumber();
@@ -11,7 +13,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById("random-number").textContent = randomNumber;
 
-    const countdownDuration = 30 * 1000;
+    // Inicializar o tempo restante (30 segundos)
+    const countdownDuration = 30 * 1000; // 30 segundos em milissegundos
     let endTime = localStorage.getItem('endTime');
 
     if (!endTime) {
@@ -32,15 +35,25 @@ document.addEventListener("DOMContentLoaded", function() {
         if (timeLeft === 0) {
             clearInterval(countdownInterval);
             countdownElement.classList.add('red');
-            if (navigator.vibrate) {
-                console.log("Vibrando...");
-                navigator.vibrate([500, 200, 500]);
-            } else {
-                console.log("Vibração não suportada.");
-            }
+            vibrateDevice();
         }
     }
 
+    // Função para fazer o dispositivo vibrar
+    function vibrateDevice() {
+        if ('vibrate' in navigator) {
+            console.log("Tentando vibrar...");
+            navigator.vibrate([500, 200, 500]);
+        } else {
+            console.log("API de vibração não suportada.");
+        }
+    }
+
+    // Adicionar evento ao botão para teste manual
+    const vibrateButton = document.getElementById("vibrate-button");
+    vibrateButton.addEventListener("click", vibrateDevice);
+
+    // Atualizar o relógio a cada segundo
     const countdownInterval = setInterval(updateCountdown, 1000);
-    updateCountdown();
+    updateCountdown(); // Chamada inicial para exibir imediatamente
 });

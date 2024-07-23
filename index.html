@@ -3,17 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Número Aleatório e Contagem Regressiva</title>
+    <title>Temporizador</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Número Aleatório: <span id="random-number"></span></h1>
-        <div class="timer">
-            <h2>Tempo Restante: <span id="countdown"></span></h2>
+        <h1 id="title">Gere Sua Senha</h1>
+        <div id="countdown" class="timer">00:00</div>
+        <button id="start-button">Iniciar</button>
+        <div id="preparation-message" class="hidden">Em Preparação</div>
+        <button id="received-button" class="hidden">Pedido Recebido</button>
+        <div id="password" class="password"></div>
+        
+        <div id="custom-alert" class="alert hidden">
+            <div id="alert-message" class="alert-content"></div>
+            <button id="alert-confirm">Sim</button>
+            <button id="alert-cancel">Não</button>
         </div>
-        <button id="start-button">Gerar Senha</button> <!-- Botão para interação do usuário -->
-        <audio id="notification-sound" src="beep.mp3"></audio> <!-- Certifique-se de que este arquivo está no local correto -->
+        
+        <!-- Novo conteúdo de confirmação -->
+        <div id="confirmation" class="confirmation hidden">
+            <div class="confirmation-message">
+                <div class="confirmation-icon">✅</div>
+                <p>Seu pedido foi recebido com sucesso!</p>
+                <a href="index.html" class="confirmation-link">Voltar para a Página Inicial</a>
+            </div>
+        </div>
+
+        <audio id="notification-sound" src="beep.mp3"></audio>
     </div>
     <script src="script.js"></script>
 </body>

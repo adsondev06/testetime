@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("random-number").textContent = randomNumber;
 
     // Inicializar o tempo restante (10 minutos)
-    const countdownDuration = 10 * 60 * 1000; // 10 minutos em milissegundos
+    const countdownDuration = 1 * 60 * 1000; // 10 minutos em milissegundos
     let endTime = localStorage.getItem('endTime');
 
     if (!endTime) {

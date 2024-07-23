@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("random-number").textContent = randomNumber;
 
     // Inicializar o tempo restante (10 minutos)
-    const countdownDuration = 1 * 60 * 1000; // 10 minutos em milissegundos
+    const countdownDuration = 10 * 60 * 1000; // 10 minutos em milissegundos
     let endTime = localStorage.getItem('endTime');
 
     if (!endTime) {
@@ -36,7 +36,10 @@ document.addEventListener("DOMContentLoaded", function() {
             clearInterval(countdownInterval);
             countdownElement.classList.add('red');
             if (navigator.vibrate) {
-                navigator.vibrate([500, 200, 500]);
+                console.log("Vibrando...");
+                navigator.vibrate([1000, 500, 1000]);
+            } else {
+                console.log("Vibração não suportada.");
             }
         }
     }
